@@ -1,0 +1,29 @@
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  nope:
+    runs-on: ubuntu-latest
+    steps:
+      - if: github.event.user.login != 'minecraft-dev-autoreporter'
+        uses: actions/github-script@v5
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'This repository is not for general issue reports or feature requests, [please open those here](https://github.com/minecraft-dev/MinecraftDev/issues/new/choose).'
+            })
+            await github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            })
+            await github.rest.issues.lock({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            })
