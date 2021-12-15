@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Minecraft Development for IntelliJ Issues
+    url: https://github.com/minecraft-dev/MinecraftDev/issues/new/choose
+    about: Please use the main repo for general issue reports and feature requests.
