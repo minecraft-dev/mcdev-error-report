@@ -6,3 +6,4 @@ feature requests for the Minecraft Development for IntelliJ plugin, those should
 [here](https://github.com/minecraft-dev/MinecraftDev/issues/new/choose).
 
 All issues or PRs opened on this repo will be closed and locked immediately. 
+hi
